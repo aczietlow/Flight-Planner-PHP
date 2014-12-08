@@ -31,3 +31,5 @@ _vti_*
 *.LCK
 *.TMP
 *~
+
+/vendor/

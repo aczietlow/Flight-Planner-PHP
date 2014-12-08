@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+
+
+    <dylon>
+        <airplanes>
+            <airplane>
+                <make>F</make>
+                <model>22</model>
+                <type>Turbo-Prop</type>
+                <tank_size>200.0</tank_size>
+                <liters_per_hour>1.0</liters_per_hour>
+                <cruise_speed>5000.0</cruise_speed>
+            </airplane>
+            <airplane>
+                <make>Boeing</make>
+                <model>747</model>
+                <type>Turbo-Prop</type>
+                <tank_size>223448.0</tank_size>
+                <liters_per_hour>14400.0</liters_per_hour>
+                <cruise_speed>912.0</cruise_speed>
+            </airplane>
+        </airplanes>
+        <airports>
+            <airport>
+                <icao_id>ADSE</icao_id>
+                <name>Something Fake Four</name>
+                <has_avgas>true</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>179.388</latitude>
+                    <longitude>179.1195</longitude>
+                </coordinate>
+                <elevation>32.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2622.0</length>
+                        <number>1</number>
+                    </runway>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2439.0</length>
+                        <number>2</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>ATIS</type>
+                        <freq>120.15</freq>
+                    </comm>
+                </comms>
+            </airport>
+            <airport>
+                <icao_id>LAOC</icao_id>
+                <name>Something Fake Two</name>
+                <has_avgas>true</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>17.388</latitude>
+                    <longitude>179.1195</longitude>
+                </coordinate>
+                <elevation>32.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2622.0</length>
+                        <number>1</number>
+                    </runway>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2439.0</length>
+                        <number>2</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>ATIS</type>
+                        <freq>120.15</freq>
+                    </comm>
+                </comms>
+            </airport>
+            <airport>
+                <icao_id>KCAE</icao_id>
+                <name>Columbia Metropolitan Airport</name>
+                <has_avgas>true</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>33.9388</latitude>
+                    <longitude>-81.1195</longitude>
+                </coordinate>
+                <elevation>69.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2439.0</length>
+                        <number>2</number>
+                    </runway>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2622.0</length>
+                        <number>1</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>124.15</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>124.15</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>133.4</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>133.4</freq>
+                    </comm>
+                    <comm>
+                        <type>ATIS</type>
+                        <freq>120.15</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>121.9</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>122.95</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>124.15</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>119.75</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>119.5</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>121.5</freq>
+                    </comm>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>133.4</freq>
+                    </comm>
+                </comms>
+            </airport>
+            <airport>
+                <icao_id>KDAO</icao_id>
+                <name>Something Else Fake</name>
+                <has_avgas>true</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>42.388</latitude>
+                    <longitude>-90.1195</longitude>
+                </coordinate>
+                <elevation>323.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2622.0</length>
+                        <number>1</number>
+                    </runway>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2439.0</length>
+                        <number>2</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>ATIS</type>
+                        <freq>120.15</freq>
+                    </comm>
+                </comms>
+            </airport>
+            <airport>
+                <icao_id>KCAO</icao_id>
+                <name>Something Fake</name>
+                <has_avgas>true</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>-33.9388</latitude>
+                    <longitude>138.1195</longitude>
+                </coordinate>
+                <elevation>123.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2439.0</length>
+                        <number>2</number>
+                    </runway>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2622.0</length>
+                        <number>1</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>ATIS</type>
+                        <freq>120.15</freq>
+                    </comm>
+                </comms>
+            </airport>
+            <airport>
+                <icao_id>KCAJ</icao_id>
+                <name>Something More Fake</name>
+                <has_avgas>false</has_avgas>
+                <has_ja_a>false</has_ja_a>
+                <coordinate>
+                    <latitude>-34.9388</latitude>
+                    <longitude>138.1195</longitude>
+                </coordinate>
+                <elevation>123.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2622.0</length>
+                        <number>1</number>
+                    </runway>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2439.0</length>
+                        <number>2</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>ATIS</type>
+                        <freq>120.15</freq>
+                    </comm>
+                </comms>
+            </airport>
+        </airports>
+        <navbeacons>
+            <navbeacon>
+                <icao_id>ACDB</icao_id>
+                <name>Jupiter</name>
+                <type>LORAN</type>
+                <coordinate>
+                    <latitude>27.033</latitude>
+                    <longitude>80.1147</longitude>
+                </coordinate>
+            </navbeacon>
+        </navbeacons>
+    </dylon>
+    <jmorgan>
+        <airplanes>
+            <airplane>
+                <make>Bell</make>
+                <model>CH19</model>
+                <type>Turbo-Prop</type>
+                <tank_size>500.0</tank_size>
+                <liters_per_hour>65.0</liters_per_hour>
+                <cruise_speed>150.0</cruise_speed>
+            </airplane>
+            <airplane>
+                <make>My</make>
+                <model>Airplane</model>
+                <type>Turbo-Prop</type>
+                <tank_size>600.0</tank_size>
+                <liters_per_hour>100.0</liters_per_hour>
+                <cruise_speed>100.0</cruise_speed>
+            </airplane>
+            <airplane>
+                <make>DeleteMe</make>
+                <model>MeDelete</model>
+                <type>Turbo-Prop</type>
+                <tank_size>4000.0</tank_size>
+                <liters_per_hour>500.0</liters_per_hour>
+                <cruise_speed>450.0</cruise_speed>
+            </airplane>
+            <airplane>
+                <make>Bell</make>
+                <model>DHC8</model>
+                <type>Turbo-Prop</type>
+                <tank_size>500.0</tank_size>
+                <liters_per_hour>100.0</liters_per_hour>
+                <cruise_speed>300.0</cruise_speed>
+            </airplane>
+        </airplanes>
+        <airports>
+            <airport>
+                <icao_id>DALA</icao_id>
+                <name>Dallas International Airport</name>
+                <has_avgas>true</has_avgas>
+                <has_ja_a>false</has_ja_a>
+                <coordinate>
+                    <latitude>32.0</latitude>
+                    <longitude>96.0</longitude>
+                </coordinate>
+                <elevation>56.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>300.0</length>
+                        <number>121</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>125.975</freq>
+                    </comm>
+                </comms>
+            </airport>
+            <airport>
+                <icao_id>VCIA</icao_id>
+                <name>Vancouver International Airport</name>
+                <has_avgas>false</has_avgas>
+                <has_ja_a>false</has_ja_a>
+                <coordinate>
+                    <latitude>49.0</latitude>
+                    <longitude>123.0</longitude>
+                </coordinate>
+                <elevation>229.0</elevation>
+                <runways/>
+                <comms/>
+            </airport>
+            <airport>
+                <icao_id>ABCD</icao_id>
+                <name>Airport One</name>
+                <has_avgas>false</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>10.0</latitude>
+                    <longitude>10.0</longitude>
+                </coordinate>
+                <elevation>100.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2000.0</length>
+                        <number>1</number>
+                    </runway>
+                </runways>
+                <comms/>
+            </airport>
+            <airport>
+                <icao_id>ACBD</icao_id>
+                <name>Airport Three</name>
+                <has_avgas>false</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>20.0</latitude>
+                    <longitude>20.0</longitude>
+                </coordinate>
+                <elevation>100.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2000.0</length>
+                        <number>1</number>
+                    </runway>
+                </runways>
+                <comms/>
+            </airport>
+            <airport>
+                <icao_id>ACDB</icao_id>
+                <name>Airport Two</name>
+                <has_avgas>false</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>15.0</latitude>
+                    <longitude>15.0</longitude>
+                </coordinate>
+                <elevation>100.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>2000.0</length>
+                        <number>1</number>
+                    </runway>
+                </runways>
+                <comms/>
+            </airport>
+            <airport>
+                <icao_id>ELED</icao_id>
+                <name>MEDELETE</name>
+                <has_avgas>false</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>40.0</latitude>
+                    <longitude>104.0</longitude>
+                </coordinate>
+                <elevation>152.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>500.0</length>
+                        <number>125</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>ATIS</type>
+                        <freq>118.0</freq>
+                    </comm>
+                </comms>
+            </airport>
+            <airport>
+                <icao_id>AUGA</icao_id>
+                <name>Augusta Regional Airport</name>
+                <has_avgas>true</has_avgas>
+                <has_ja_a>true</has_ja_a>
+                <coordinate>
+                    <latitude>33.0</latitude>
+                    <longitude>82.0</longitude>
+                </coordinate>
+                <elevation>25.0</elevation>
+                <runways>
+                    <runway>
+                        <type>Precision Runway</type>
+                        <length>200.0</length>
+                        <number>103</number>
+                    </runway>
+                </runways>
+                <comms>
+                    <comm>
+                        <type>Emergency Call</type>
+                        <freq>125.975</freq>
+                    </comm>
+                </comms>
+            </airport>
+        </airports>
+        <navbeacons>
+            <navbeacon>
+                <icao_id>NAVE</icao_id>
+                <name>NAV5</name>
+                <type>VORTAC</type>
+                <coordinate>
+                    <latitude>35.0</latitude>
+                    <longitude>96.0</longitude>
+                </coordinate>
+            </navbeacon>
+            <navbeacon>
+                <icao_id>NAVA</icao_id>
+                <name>NAV1</name>
+                <type>VORTAC</type>
+                <coordinate>
+                    <latitude>30.0</latitude>
+                    <longitude>85.0</longitude>
+                </coordinate>
+            </navbeacon>
+            <navbeacon>
+                <icao_id>NAVB</icao_id>
+                <name>NAV2</name>
+                <type>LORAN</type>
+                <coordinate>
+                    <latitude>34.0</latitude>
+                    <longitude>86.0</longitude>
+                </coordinate>
+            </navbeacon>
+            <navbeacon>
+                <icao_id>NAVD</icao_id>
+                <name>NAV4</name>
+                <type>VOR</type>
+                <coordinate>
+                    <latitude>34.0</latitude>
+                    <longitude>91.0</longitude>
+                </coordinate>
+            </navbeacon>
+            <navbeacon>
+                <icao_id>NAVC</icao_id>
+                <name>NAV3</name>
+                <type>NDB</type>
+                <coordinate>
+                    <latitude>31.0</latitude>
+                    <longitude>88.0</longitude>
+                </coordinate>
+            </navbeacon>
+        </navbeacons>
+    </jmorgan>
+    <chris>
+        <airplanes/>
+        <airports/>
+        <navbeacons/>
+    </chris>
+</database>

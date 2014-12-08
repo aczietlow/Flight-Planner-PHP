@@ -10,6 +10,6 @@ namespace FlightSim\Database;
 
 class Database {
   public function hello() {
-    print 'hello';
+    return TRUE;
   }
 }

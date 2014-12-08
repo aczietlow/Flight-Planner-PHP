@@ -9,4 +9,4 @@
 require_once 'vendor/autoload.php';
 
 
-
+$d = new FlightSim\Database\Database()

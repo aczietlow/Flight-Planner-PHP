@@ -6,7 +6,7 @@
  * @author aczietlow
  */
 
-namespace FlightSim\Destination;
+namespace FlightSim\Aviation;
 
 
 abstract class Destination

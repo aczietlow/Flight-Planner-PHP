@@ -6,7 +6,7 @@
  * @author aczietlow
  */
 
-namespace FlightSim\NavBeacon;
+namespace FlightSim\Aviation;
 
 
 class NavBeacon

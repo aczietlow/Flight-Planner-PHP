@@ -6,7 +6,7 @@
  * @author aczietlow
  */
 
-namespace FlightSim\Airport;
+namespace FlightSim\Aviation;
 
 
 class Airport

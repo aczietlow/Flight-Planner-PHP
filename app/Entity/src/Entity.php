@@ -28,9 +28,10 @@ class Entity
      */
     public static function getDestination($destinationType)
     {
+        $class = '\\FlightSim\\Entity\\' . $destinationType;
         // Instantiate the destination object.
-        if (class_exists($destinationType)) {
-            return new $destinationType();
+        if (class_exists($class)) {
+            return new $class();
         } else {
             throw new Exception("Could not load class $destinationType.");
         }

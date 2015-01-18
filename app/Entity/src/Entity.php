@@ -28,7 +28,12 @@ class Entity
      */
     public static function getDestination($destinationType)
     {
+        /* Can not insert a variable into a php namespace.
+         * '\FlightSim\Entity\$destinationType' is a syntax error.
+         */
+        // Define the fully qualified class path as a string.
         $class = '\\FlightSim\\Entity\\' . $destinationType;
+
         // Instantiate the destination object.
         if (class_exists($class)) {
             return new $class();

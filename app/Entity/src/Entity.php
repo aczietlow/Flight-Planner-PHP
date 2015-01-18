@@ -25,10 +25,8 @@ class Entity
      *   The type of destination object to be loaded
      * @returns Destination
      *   Returns destination object.
-     *
-     * @TODO Come back and add error handling.
      */
-    public function getDestination($destinationType)
+    public static function getDestination($destinationType)
     {
         // Instantiate the destination object.
         if (class_exists($destinationType)) {

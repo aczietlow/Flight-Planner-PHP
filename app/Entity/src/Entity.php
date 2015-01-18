@@ -22,7 +22,9 @@ class Entity
      * Gets destination object.
      *
      * @param string $destinationType
-     *   The type of destination object to be loaded
+     *   The type of destination object to be loaded.
+     *
+     * @throws Exception if the instantiated object is not a destination object.
      *
      * @returns Destination
      *   Returns destination object.
@@ -40,9 +42,28 @@ class Entity
         }
     }
 
-    public static function getVehicle()
+    /**
+     * Gets vehicle object.
+     *
+     * @param string $vehicleType
+     *   The type of vehicle object to be loaded.
+     *
+     * @throws Exception if the instantiated object is not a Airport object.
+     *
+     * @returns Destination
+     *   Returns destination object.
+     */
+    public static function getVehicle($vehicleType)
     {
+        // Instantiate the destination object.
+        $vehicle = self::load($vehicleType);
 
+        // Check that the returned object is a Destination object.
+        if ($vehicle instanceof Vehicle) {
+            return $vehicle;
+        } else {
+            throw new Exception("$vehicleType is not a valid vehicle Object");
+        }
     }
 
     /**
@@ -51,10 +72,13 @@ class Entity
      * @param string $type
      *   The type of object to be instantiated.
      *
+     * @throws Exception if the object can not be loaded or the class can not be found.
+     *
      * @returns object
      *   Returns object.
      */
-    protected function load($type) {
+    protected function load($type)
+    {
         /* Can not insert a variable into a php namespace.
          * '\FlightSim\Entity\$destinationType' is a syntax error.
          */

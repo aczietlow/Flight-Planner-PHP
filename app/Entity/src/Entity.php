@@ -11,25 +11,17 @@ namespace FlightSim\Entity;
 class Entity
 {
     /**
-     * Load a given entity.
+     * Gets destination object.
+     *
+     * @returns Destination
+     *   Returns destination object.
      */
-    public function load()
+    public function getDestination()
     {
 
     }
 
-    /**
-     * Saves existing entity with new fields or creates a new entity.
-     */
-    public function save()
-    {
-
-    }
-
-    /**
-     * Delete a given entity,
-     */
-    public function delete()
+    public function getVehicle()
     {
 
     }

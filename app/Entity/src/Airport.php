@@ -12,7 +12,7 @@ namespace FlightSim\Entity;
 
 class Airport extends Destination
 {
-    protected $type = 'Airport';
+    protected $EntityType = 'Airport';
 
     public $name;
     public $ICAO;

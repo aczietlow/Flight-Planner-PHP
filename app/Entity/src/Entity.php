@@ -17,7 +17,7 @@ abstract class Entity {
      *
      * @var String
      */
-    protected $type;
+    protected $EntityType;
 
     /**
      * Load existing Entities.
@@ -32,7 +32,7 @@ abstract class Entity {
     public function load($identifier)
     {
         $db = new Database();
-        $airportData = $db->load($this->type, $identifier);
+        $airportData = $db->load($this->EntityType, $identifier);
         $this->fromArray($airportData);
     }
 

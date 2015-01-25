@@ -8,7 +8,9 @@
             "email": "aczietlow@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+      "sabre/xml": "dev-master"
+    },
     "require-dev": {
         "phpunit/phpunit": "~4.4"
     },

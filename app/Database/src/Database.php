@@ -8,36 +8,44 @@
 
 namespace FlightSim\Database;
 
-class Database extends \PDO {
+class Database {
 
-  public function __construct() {
-  }
+    public $xml;
 
-  /**
-   * Creates PDO object to be used to interact with the database through out the
-   * application.
-   */
-  public function connect() {
-    $info = $this->getConnectionInfo();
-    try {
-      parent::__construct('mysql://' . $info['name'] . ':' . $info['password'] . '@' . $info['uri'] . '/' . $info['database']);
-    } catch (\PDOException $e) {
-      sprintf('Database connection failed: %s', $e->getMessage());
+    public function __construct()
+    {
+        $xml = file_get_contents('app/Database/data/database.xml');
+        $this->xml = new \SimpleXMLElement($xml);
     }
 
-    return TRUE;
-  }
+    // @todo Load a certain object of a certain type.
+    public function load($type, $identifier)
+    {
 
-  /**
-   * Get the connection info needed to create the PDO object from the config
-   * file.
-   */
-  public function getConnectionInfo() {
-    return array(
-      'name' => 'root',
-      'password' => 'root',
-      'database' => 'drupal8',
-      'uri' => '127.0.0.1',
-    );
-  }
+        $result = $this->xml->xpath(
+          // @todo Evaluate if it's reliable that $type(s)/$type will always work.
+          $type . "s/". $type . "[model=".$identifier."]"
+        );
+
+        // XPath returns a series of SimpleXMLElement objects, but we only expect
+        // to have one result, so we use current() to extract that item, and then
+        // get_object_vars to convert the object to an array.
+        return get_object_vars(current($result));
+
+    }
+
+    public function loadAirplane($identifier)
+    {
+
+    }
+
+    public function loadDestination($identifier)
+    {
+
+    }
+
+    public function loadNavBeacon($identifier)
+    {
+
+    }
 }

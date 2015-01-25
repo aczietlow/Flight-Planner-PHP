@@ -77,7 +77,7 @@ class Entity
      * @returns object
      *   Returns object.
      */
-    protected function load($type)
+    protected static function load($type)
     {
         /* Can not insert a variable into a php namespace.
          * '\FlightSim\Entity\$destinationType' is a syntax error.

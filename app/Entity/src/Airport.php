@@ -9,6 +9,8 @@
 namespace FlightSim\Entity;
 
 
+use FlightSim\Database\Database;
+
 class Airport extends Destination
 {
     public $name;
@@ -83,5 +85,19 @@ class Airport extends Destination
 
     public function getLocation()
     {
+    }
+
+    /**
+     * Load instance of existing Airport Entity.
+     *
+     * @TODO This screams for dependency injection.
+     *
+     * @return mixed|void
+     */
+    public function load($identifier)
+    {
+        $db = new Database();
+        $airportData = $db->load('Airport', $identifier);
+        $this->fromArray($airportData);
     }
 }

@@ -40,4 +40,11 @@ class Database extends \PDO {
       'uri' => '127.0.0.1',
     );
   }
+    /**
+     * Placeholder method.
+     */
+    public function load($type, $identifier)
+    {
+        return 'foo';
+    }
 }

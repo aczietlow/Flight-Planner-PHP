@@ -38,7 +38,7 @@ class EntityFactory
         if ($destination instanceof Destination) {
             return $destination;
         } else {
-            throw new Exception("$destinationType is not a valid destination Object");
+            throw new \Exception("$destinationType is not a valid destination Object");
         }
     }
 

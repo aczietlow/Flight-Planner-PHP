@@ -12,10 +12,9 @@ require_once 'vendor/autoload.php';
 /*
  * Testing implementation code of classes.
  */
-$d = new FlightSim\Database\Database();
 
-$destination = FlightSim\Entity\EntityFactory::getDestination('Airport');
+//$destination = FlightSim\Entity\EntityFactory::getDestination('Airport');
 
-//$destination = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('KAGS');
+$destination = FlightSim\Entity\EntityFactory::getDestination('Airplane')->load('747compo');
 
 var_dump($destination);

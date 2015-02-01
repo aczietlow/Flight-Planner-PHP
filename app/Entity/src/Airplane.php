@@ -11,7 +11,7 @@ namespace FlightSim\Entity;
 
 class Airplane extends Vehicle
 {
-    protected $EntityType = 'Airport';
+    protected $EntityType = 'airplane';
 
     public function getName()
     {

@@ -8,8 +8,6 @@
 
 namespace FlightSim\Entity;
 
-use SebastianBergmann\Exporter\Exception;
-
 /**
  * Class Entity
  * @package FlightSim\Entity
@@ -24,7 +22,7 @@ class EntityFactory
      * @param string $destinationType
      *   The type of destination object to be loaded.
      *
-     * @throws Exception if the instantiated object is not a destination object.
+     * @throws \Exception if the instantiated object is not a destination object.
      *
      * @returns Destination
      *   Returns destination object.
@@ -34,11 +32,11 @@ class EntityFactory
         // Instantiate the destination object.
         $destination = self::load($destinationType);
 
-        // Check that the returned object is a Destination object.
-        if ($destination instanceof Destination) {
+        // Check that the returned object is a Entity object.
+        if ($destination instanceof Entity) {
             return $destination;
         } else {
-            throw new \Exception("$destinationType is not a valid destination Object");
+            throw new \Exception("$destinationType is not a valid Entity Object");
         }
     }
 
@@ -48,7 +46,7 @@ class EntityFactory
      * @param string $vehicleType
      *   The type of vehicle object to be loaded.
      *
-     * @throws Exception if the instantiated object is not a Airport object.
+     * @throws \Exception if the instantiated object is not a Airport object.
      *
      * @returns Destination
      *   Returns destination object.
@@ -62,7 +60,7 @@ class EntityFactory
         if ($vehicle instanceof Vehicle) {
             return $vehicle;
         } else {
-            throw new Exception("$vehicleType is not a valid vehicle Object");
+            throw new \Exception("$vehicleType is not a valid vehicle Object");
         }
     }
 
@@ -72,7 +70,7 @@ class EntityFactory
      * @param string $type
      *   The type of object to be instantiated.
      *
-     * @throws Exception if the object can not be loaded or the class can not be found.
+     * @throws \Exception if the object can not be loaded or the class can not be found.
      *
      * @returns object
      *   Returns object.
@@ -89,7 +87,7 @@ class EntityFactory
         if (class_exists($class)) {
             return new $class();
         } else {
-            throw new Exception("Could not load class $type.");
+            throw new \Exception("Could not load class $type.");
         }
     }
 }

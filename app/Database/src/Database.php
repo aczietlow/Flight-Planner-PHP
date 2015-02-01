@@ -8,7 +8,8 @@
 
 namespace FlightSim\Database;
 
-class Database {
+class Database
+{
 
     public $xml;
 
@@ -23,8 +24,8 @@ class Database {
     {
 
         $result = $this->xml->xpath(
-          // @todo Evaluate if it's reliable that $type(s)/$type will always work.
-          $type . "s/". $type . "[model=".$identifier."]"
+            // @todo Evaluate if it's reliable that $type(s)/$type will always work.
+            $type . "s/". $type . "[model=".$identifier."]"
         );
 
         // XPath returns a series of SimpleXMLElement objects, but we only expect

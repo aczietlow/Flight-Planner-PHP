@@ -14,8 +14,8 @@ require_once 'vendor/autoload.php';
  */
 $d = new FlightSim\Database\Database();
 
-$airplane = $d->load('airplane', '22');
+$destination = FlightSim\Entity\EntityFactory::getDestination('Airport');
 
-$destination = FlightSim\Entity\Entity::getDestination('Airport');
+//$destination = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('KAGS');
 
 var_dump($destination);

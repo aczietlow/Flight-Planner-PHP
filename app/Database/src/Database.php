@@ -19,13 +19,25 @@ class Database
         $this->xml = new \SimpleXMLElement($xml);
     }
 
-    // @todo Load a certain object of a certain type.
-    public function load($type, $identifier)
+  /**
+   * Finds and retrieves available information about the requested entity.
+   *
+   * @param string $type
+   *    The type of entity the user wishes to retrieve.
+   * @param $uid
+   *    Unique identifier of the entity in question (model, airport code, etc).
+   * @param $identifier
+   *    The type of identifier to be searched (model, airport_code, etc).
+   *
+   * @return array
+   *    An array of available information about the requested entity.
+   */
+    public function load($type, $uid, $identifier)
     {
 
         $result = $this->xml->xpath(
             // @todo Evaluate if it's reliable that $type(s)/$type will always work.
-            $type . "s/". $type . "[model=".$identifier."]"
+            $type . "s/". $type . "[.$identifier.=".$uid."]"
         );
 
         // XPath returns a series of SimpleXMLElement objects, but we only expect

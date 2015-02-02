@@ -11,7 +11,15 @@ namespace FlightSim\Entity;
 
 class NavBeacon extends Destination
 {
-    protected $EntityType = 'NavBeacon';
+    /**
+     * @inheritdoc
+     */
+    protected $entityType = 'navbeacon';
+
+    /**
+     * @inheritdoc
+     */
+    protected $entityIdentifier = 'icao_id';
 
     public $name;
     public $ICAO;

@@ -17,7 +17,14 @@ abstract class Entity {
      *
      * @var String
      */
-    protected $EntityType;
+    protected $entityType;
+
+    /**
+     * The identifier used for by the entity in the database.
+     *
+     * @var String
+     */
+    protected $entityIdentifier;
 
     /**
      * Load existing Entities.
@@ -29,10 +36,10 @@ abstract class Entity {
      *
      * @return mixed|void
      */
-    public function load($identifier)
+    public function load($uid)
     {
         $db = new Database();
-        $entityData = $db->load($this->EntityType, $identifier);
+        $entityData = $db->load($this->entityType, $uid, $this->entityIdentifier);
         return $entityData;
     }
 }

@@ -29,6 +29,8 @@ class Database
    * @param $identifier
    *    The type of identifier to be searched (model, airport_code, etc).
    *
+   * @throws \Exception when the database returns an empty dataset.
+   *
    * @return array
    *    An array of available information about the requested entity.
    */

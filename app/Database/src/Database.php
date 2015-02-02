@@ -37,7 +37,7 @@ class Database
 
         $result = $this->xml->xpath(
             // @todo Evaluate if it's reliable that $type(s)/$type will always work.
-            $type . "s/". $type . "[" . $identifier . "=" . $uid . "]"
+            $type . "s/". $type . "[" . $identifier . "=\"" . $uid . "\"]"
         );
 
         if (empty($result)) {

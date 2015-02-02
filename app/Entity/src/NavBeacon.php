@@ -9,7 +9,7 @@
 namespace FlightSim\Entity;
 
 
-class NavBeacons extends Destination
+class NavBeacon extends Destination
 {
     protected $EntityType = 'NavBeacon';
 

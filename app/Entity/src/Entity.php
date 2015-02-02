@@ -32,8 +32,11 @@ abstract class Entity {
     public function load($identifier)
     {
         $db = new Database();
-        $airportData = $db->load($this->EntityType, $identifier);
-        $this->fromArray($airportData);
+        $entityData = $db->load($this->EntityType, $identifier);
+        return $entityData;
+//        $entityData = $this->fromArray($entityData);
+
+        return $entityData;
     }
 
     /**
@@ -43,9 +46,11 @@ abstract class Entity {
      * @param $array
      */
     public function fromArray($array) {
+        $data = array();
         foreach($array as $key => $value) {
-            if (property_exists($this, $key) && $key != 'debugData') {
-                $this->{$key} = $value;
+            if (property_exists($this, $key)) {
+
+                $data->{$key} = $value;
             }
         }
     }

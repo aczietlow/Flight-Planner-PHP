@@ -13,8 +13,8 @@ require_once 'vendor/autoload.php';
  * Testing implementation code of classes.
  */
 
-//$destination = FlightSim\Entity\EntityFactory::getDestination('Airport');
+//$destination = FlightSim\Entity\EntityFactory::getDestination('Airplane');
 
-$destination = FlightSim\Entity\EntityFactory::getDestination('Airplane')->load('747compo');
+$destination = FlightSim\Entity\EntityFactory::getDestination('Airplane')->load('747');
 
 var_dump($destination);

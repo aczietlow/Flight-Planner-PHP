@@ -9,7 +9,7 @@
 namespace FlightSim\Entity;
 
 
-abstract class Vehicle
+abstract class Vehicle extends Entity
 {
     /**
      * Gets the human readable name of the destination.

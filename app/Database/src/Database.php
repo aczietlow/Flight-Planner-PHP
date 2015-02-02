@@ -40,6 +40,10 @@ class Database
             $type . "s/". $type . "[.$identifier.=".$uid."]"
         );
 
+        if (empty($result)) {
+            throw new \Exception(sprintf("The %s %s could not be found using the %s as the identifier", $uid, $type, $identifier));
+        }
+
         // XPath returns a series of SimpleXMLElement objects, but we only expect
         // to have one result, so we use current() to extract that item, and then
         // get_object_vars to convert the object to an array.

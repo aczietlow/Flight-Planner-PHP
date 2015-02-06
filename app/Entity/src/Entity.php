@@ -1,95 +1,45 @@
 <?php
 /**
- * @file
- * Entity.php
- *
- * @author aczietlow
+ * Created by PhpStorm.
+ * User: aczietlow
+ * Date: 1/25/15
+ * Time: 4:12 PM
  */
 
 namespace FlightSim\Entity;
 
-use SebastianBergmann\Exporter\Exception;
+use FlightSim\Database\Database;
 
-/**
- * Class Entity
- * @package FlightSim\Entity
- *
- * Entity factory for objects needed for calculating the flight plan.
- */
-class Entity
-{
-    /**
-     * Gets destination object.
-     *
-     * @param string $destinationType
-     *   The type of destination object to be loaded.
-     *
-     * @throws Exception if the instantiated object is not a destination object.
-     *
-     * @returns Destination
-     *   Returns destination object.
-     */
-    public static function getDestination($destinationType)
-    {
-        // Instantiate the destination object.
-        $destination = self::load($destinationType);
-
-        // Check that the returned object is a Destination object.
-        if ($destination instanceof Destination) {
-            return $destination;
-        } else {
-            throw new Exception("$destinationType is not a valid destination Object");
-        }
-    }
+abstract class Entity {
 
     /**
-     * Gets vehicle object.
+     * The type of Entity object.
      *
-     * @param string $vehicleType
-     *   The type of vehicle object to be loaded.
-     *
-     * @throws Exception if the instantiated object is not a Airport object.
-     *
-     * @returns Destination
-     *   Returns destination object.
+     * @var String
      */
-    public static function getVehicle($vehicleType)
-    {
-        // Instantiate the destination object.
-        $vehicle = self::load($vehicleType);
-
-        // Check that the returned object is a Destination object.
-        if ($vehicle instanceof Vehicle) {
-            return $vehicle;
-        } else {
-            throw new Exception("$vehicleType is not a valid vehicle Object");
-        }
-    }
+    protected $entityType;
 
     /**
-     * Instantiate requested object.
+     * The identifier used for by the entity in the database.
      *
-     * @param string $type
-     *   The type of object to be instantiated.
-     *
-     * @throws Exception if the object can not be loaded or the class can not be found.
-     *
-     * @returns object
-     *   Returns object.
+     * @var String
      */
-    protected static function load($type)
-    {
-        /* Can not insert a variable into a php namespace.
-         * '\FlightSim\Entity\$destinationType' is a syntax error.
-         */
-        // Define the fully qualified class path as a string.
-        $class = '\\FlightSim\\Entity\\' . $type;
+    protected $entityIdentifier;
 
-        // Instantiate the object.
-        if (class_exists($class)) {
-            return new $class();
-        } else {
-            throw new Exception("Could not load class $type.");
-        }
+    /**
+     * Load existing Entities.
+     *
+     * @param String
+     *   Unique identifier for the destination entity.
+     *
+     * @TODO This screams for dependency injection.
+     *
+     * @return mixed|void
+     */
+    public function load($uid)
+    {
+        $db = new Database();
+        $entityData = $db->load($this->entityType, $uid, $this->entityIdentifier);
+        return $entityData;
     }
 }

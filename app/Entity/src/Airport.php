@@ -9,8 +9,19 @@
 namespace FlightSim\Entity;
 
 
+
 class Airport extends Destination
 {
+    /**
+     * @inheritdoc
+     */
+    protected $entityType = 'airport';
+
+    /**
+     * @inheritdoc
+     */
+    protected $entityIdentifier = 'icao_id';
+
     public $name;
     public $ICAO;
     public $latitude;

@@ -12,8 +12,12 @@ require_once 'vendor/autoload.php';
 /*
  * Testing implementation code of classes.
  */
-$d = new FlightSim\Database\Database();
 
-$destination = FlightSim\Entity\Entity::getDestination('Airport')-load('AGS');
+//$destination = FlightSim\Entity\EntityFactory::getDestination('Airplane');
 
-var_dump($destination);
+$airplane = FlightSim\Entity\EntityFactory::getDestination('Airplane')->load('747');
+$airport = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('DALA');
+$navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('NAVE');
+
+
+var_dump($navbeacon);

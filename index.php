@@ -19,5 +19,4 @@ $airplane = FlightSim\Entity\EntityFactory::getDestination('Airplane')->load('74
 $airport = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('DALA');
 $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('NAVE');
 
-
 var_dump($navbeacon);

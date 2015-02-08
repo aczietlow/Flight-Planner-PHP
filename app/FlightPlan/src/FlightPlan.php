@@ -33,8 +33,8 @@ class FlightPlan
         $this->vehicle = $vehicle;
     }
 
-    public function addDestination()
+    public function addDestination(\FlightSim\Entity\Destination $destination)
     {
-
+        $this->destinations[] = $destination;
     }
 } 

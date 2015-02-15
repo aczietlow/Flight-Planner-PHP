@@ -52,6 +52,54 @@
     </airplanes>
     <airports>
         <airport>
+            <icao_id>KMCO</icao_id>
+            <name>Orlando International Airport</name>
+            <has_avgas>true</has_avgas>
+            <has_ja_a>false</has_ja_a>
+            <coordinate>
+                <latitude>28.42</latitude>
+                <longitude>81.30</longitude>
+            </coordinate>
+            <elevation>56.0</elevation>
+            <runways>
+                <runway>
+                    <type>Precision Runway</type>
+                    <length>300.0</length>
+                    <number>121</number>
+                </runway>
+            </runways>
+            <comms>
+                <comm>
+                    <type>Emergency Call</type>
+                    <freq>125.975</freq>
+                </comm>
+            </comms>
+        </airport>
+        <airport>
+            <icao_id>KCLE</icao_id>
+            <name>Cleveland Hopkins International Airport</name>
+            <has_avgas>true</has_avgas>
+            <has_ja_a>false</has_ja_a>
+            <coordinate>
+                <latitude>41.41</latitude>
+                <longitude>81.84</longitude>
+            </coordinate>
+            <elevation>56.0</elevation>
+            <runways>
+                <runway>
+                    <type>Precision Runway</type>
+                    <length>300.0</length>
+                    <number>121</number>
+                </runway>
+            </runways>
+            <comms>
+                <comm>
+                    <type>Emergency Call</type>
+                    <freq>125.975</freq>
+                </comm>
+            </comms>
+        </airport>
+        <airport>
             <icao_id>DALA</icao_id>
             <name>Dallas International Airport</name>
             <has_avgas>true</has_avgas>

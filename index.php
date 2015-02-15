@@ -20,4 +20,13 @@ $airport = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('DALA
 $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('NAVE');
 
 
-var_dump($airport);
+$startDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KMCO');
+$endDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KCLE');
+
+//var_dump($startDestination);
+
+$flightPlan = new FlightSim\FlightPlan\FlightPlan();
+$flightPlan->addDestination($startDestination);
+$flightPlan->addDestination($endDestination);
+
+var_dump($flightPlan->getDestinations());

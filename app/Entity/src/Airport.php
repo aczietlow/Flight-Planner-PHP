@@ -23,7 +23,7 @@ class Airport extends Destination
     protected $entityIdentifier = 'icao_id';
 
     public $name;
-    public $ICAO;
+    public $icao_id;
     public $latitude;
     public $longitude;
     public $fuelTypes = [];

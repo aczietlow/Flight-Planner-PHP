@@ -26,6 +26,14 @@ abstract class Entity {
      */
     protected $entityIdentifier;
 
+
+    /**
+     * Holds the data for an entity loaded from the database.
+     *
+     * @var array
+     */
+    protected $entityData;
+
     /**
      * Load existing Entities.
      *
@@ -39,7 +47,6 @@ abstract class Entity {
     public function load($uid)
     {
         $db = new Database();
-        $entityData = $db->load($this->entityType, $uid, $this->entityIdentifier);
-        return $entityData;
+        $this->entityData = $db->load($this->entityType, $uid, $this->entityIdentifier);
     }
 }

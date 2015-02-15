@@ -8,6 +8,7 @@
 
 namespace FlightSim\FlightPlan;
 
+use \FlightSim\Entity\Destination;
 
 class FlightPlan
 {
@@ -28,13 +29,33 @@ class FlightPlan
 
     }
 
+    /**
+     * Setter function for vehicles.
+     *
+     * @param \FlightSim\Entity\Vehicle $vehicle
+     */
     public function setVehicle(\FlightSim\Entity\Vehicle $vehicle)
     {
         $this->vehicle = $vehicle;
     }
 
-    public function addDestination(\FlightSim\Entity\Destination $destination)
+    /**
+     * Setter function for destinations
+     *
+     * @param Destination $destination
+     */
+    public function addDestination(Destination $destination)
     {
         $this->destinations[] = $destination;
     }
-} 
+
+    /**
+     * Getter function for destinations.
+     *
+     * @return array
+     */
+    public function getDestinations()
+    {
+        return $this->destinations;
+    }
+}

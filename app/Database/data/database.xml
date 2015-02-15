@@ -414,12 +414,13 @@
     </airports>
     <navbeacons>
         <navbeacon>
+            <!-- test data -->
             <icao_id>ZNB1</icao_id>
             <name>Augusta</name>
             <type>VORTAC</type>
             <coordinate>
-                <latitude>35.0</latitude>
-                <longitude>96.0</longitude>
+                <latitude>33.46</latitude>
+                <longitude>81.96</longitude>
             </coordinate>
         </navbeacon>
         <navbeacon>
@@ -427,8 +428,8 @@
             <name>Atlanta</name>
             <type>VORTAC</type>
             <coordinate>
-                <latitude>35.0</latitude>
-                <longitude>96.0</longitude>
+                <latitude>33.75</latitude>
+                <longitude>84.39</longitude>
             </coordinate>
         </navbeacon>
         <navbeacon>
@@ -436,8 +437,8 @@
             <name>Charlotte</name>
             <type>VORTAC</type>
             <coordinate>
-                <latitude>35.0</latitude>
-                <longitude>96.0</longitude>
+                <latitude>35.22</latitude>
+                <longitude>80.84</longitude>
             </coordinate>
         </navbeacon>
         <navbeacon>
@@ -445,8 +446,8 @@
             <name>Columbia</name>
             <type>VORTAC</type>
             <coordinate>
-                <latitude>35.0</latitude>
-                <longitude>96.0</longitude>
+                <latitude>34.00</latitude>
+                <longitude>81.03</longitude>
             </coordinate>
         </navbeacon>
         <navbeacon>
@@ -454,11 +455,11 @@
             <name>Nashville</name>
             <type>VORTAC</type>
             <coordinate>
-                <latitude>35.0</latitude>
-                <longitude>96.0</longitude>
+                <latitude>36.16</latitude>
+                <longitude>86.78</longitude>
             </coordinate>
         </navbeacon>
-        <!-- break -->
+        <!-- end test data -->
         <navbeacon>
             <icao_id>NAVE</icao_id>
             <name>NAV5</name>

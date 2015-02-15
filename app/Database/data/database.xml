@@ -414,6 +414,70 @@
     </airports>
     <navbeacons>
         <navbeacon>
+            <icao_id>ZNB1</icao_id>
+            <name>Augusta</name>
+            <type>VORTAC</type>
+            <coordinate>
+                <latitude>35.0</latitude>
+                <longitude>96.0</longitude>
+            </coordinate>
+        </navbeacon>
+        <navbeacon>
+            <icao_id>ZNB2</icao_id>
+            <name>Atlanta</name>
+            <type>VORTAC</type>
+            <coordinate>
+                <latitude>35.0</latitude>
+                <longitude>96.0</longitude>
+            </coordinate>
+        </navbeacon>
+        <navbeacon>
+            <icao_id>ZNB3</icao_id>
+            <name>Charlotte</name>
+            <type>VORTAC</type>
+            <coordinate>
+                <latitude>35.0</latitude>
+                <longitude>96.0</longitude>
+            </coordinate>
+        </navbeacon>
+        <navbeacon>
+            <icao_id>ZNB4</icao_id>
+            <name>Columbia</name>
+            <type>VORTAC</type>
+            <coordinate>
+                <latitude>35.0</latitude>
+                <longitude>96.0</longitude>
+            </coordinate>
+        </navbeacon>
+        <navbeacon>
+            <icao_id>ZNB5</icao_id>
+            <name>Nashville</name>
+            <type>VORTAC</type>
+            <coordinate>
+                <latitude>35.0</latitude>
+                <longitude>96.0</longitude>
+            </coordinate>
+        </navbeacon>
+        <!-- break -->
+        <navbeacon>
+            <icao_id>NAVE</icao_id>
+            <name>NAV5</name>
+            <type>VORTAC</type>
+            <coordinate>
+                <latitude>35.0</latitude>
+                <longitude>96.0</longitude>
+            </coordinate>
+        </navbeacon>
+        <navbeacon>
+            <icao_id>NAVE</icao_id>
+            <name>NAV5</name>
+            <type>VORTAC</type>
+            <coordinate>
+                <latitude>35.0</latitude>
+                <longitude>96.0</longitude>
+            </coordinate>
+        </navbeacon>
+        <navbeacon>
             <icao_id>NAVE</icao_id>
             <name>NAV5</name>
             <type>VORTAC</type>

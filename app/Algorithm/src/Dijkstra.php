@@ -37,16 +37,18 @@ class Dijkstra
     protected $distance;
 
     /**
-     * Gets the calculated distance array.
+     * A graph represented by an adjacency list.
      *
-     * @return array
+     * @var array
      */
-    public function getDistance()
+    protected $graph;
+
+    public function __construct($graph)
     {
-        return $this->distance;
+        $this->graph = $graph;
     }
 
-    public function DIJKSTRA($graph, $source)
+    public function getShortestPath($source, $target)
     {
         // Distance from each Vertex to source
         $distance = array();
@@ -54,23 +56,31 @@ class Dijkstra
         // Holds the shortest path tree;
         $sptSet = array();
 
-        foreach ($graph as $vertex => $adjacentVertices) {
+        // Queue of all unoptimized vertices
+        $queue = new \SplPriorityQueue();
+
+        foreach ($this->graph as $vertex => $adjacentVertices) {
+            // @TODO PHP_INT_MAX vs INF?
             $distance[$vertex] = PHP_INT_MAX;
             $sptSet[$vertex] = false;
+            foreach ($adjacentVertices as $adjacentVertex => $distanceValue) {
+                // Use the distance (weight) as the priority.
+                $queue->insert($adjacentVertex, $distanceValue);
+            }
         }
 
         // Set distance of starting point to 0.
         $distance[$source] = 0;
 
         // Find shortest path from all vertices.
-        for ($i = 0; $i < count($graph) - 1; $i++) {
-            $u = $this->minDistance($distance, $sptSet, $graph);
+        for ($i = 0; $i < count($this->graph) - 1; $i++) {
+            $u = $this->minDistance($distance, $sptSet);
 
             // Mark the vertex as processed in the spt.
             $sptSet[$u] = true;
 
             // Update the distance of all adjacent vertices from the selected vertex.
-            foreach ($graph[$u] as $v => $distanceValue) {
+            foreach ($this->graph[$u] as $v => $distanceValue) {
                 /*
                  * Update distance of $vertex if:
                  * - It's not in sptSet
@@ -109,13 +119,13 @@ class Dijkstra
      * @return mixed
      *   The vertex with the minimum distance from source.
      */
-    protected function minDistance($distance, $sptSet, $graph)
+    protected function minDistance($distance, $sptSet)
     {
         $min = PHP_INT_MAX;
         $minVertex = '';
 
         // Finds the next unprocessed vertex with the shortest distance from source.
-        foreach ($graph as $vertex => $adjacentVertices) {
+        foreach ($this->graph as $vertex => $adjacentVertices) {
             if ($sptSet[$vertex] == false && $distance[$vertex] <= $min) {
                 $min = $distance[$vertex];
                 $minVertex = $vertex;

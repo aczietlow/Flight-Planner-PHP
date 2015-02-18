@@ -32,7 +32,9 @@ $graph = array(
   'G' => array('B' => 10, 'F' => 2),
 );
 
-$algorithm = new \FlightSim\Algorithm\Dijkstra($graph);
+//$algorithm = new \FlightSim\Algorithm\Dijkstra($graph);
 
-$algorithm->DIJKSTRA($graph, 'A');
-$algorithm->printSolution();
+//$algorithm->DIJKSTRA($graph, 'A');
+//$algorithm->printSolution();
+
+$Q = new SplPriorityQueue();

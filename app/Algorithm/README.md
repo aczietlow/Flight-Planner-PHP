@@ -29,7 +29,7 @@ Assign a distance value of 0 to the source vertex so that it is picked first.
 For this problem space a graph can be thought of as a series of vertices plotted along with x,y axis with a
 measure of distance for each edge between vertices.
 
-![Graphs](http://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif "Source: http://wikimedia.org/")
+![Graphs](http://www.geeksforgeeks.org/wp-content/uploads/Fig-11.jpg "Source: http://www.geeksforgeeks.org")
 
 There are 2 ways to represent this at a code level, adjacency matrix, or adjacency list. Each has advantages 
 and disadvantages is processing speeds depending on the task. To my knowledge I don't know of a common/simple
@@ -39,7 +39,50 @@ way to use  adjacency matrices in PHP.
 
 An adjacency matrix is a means of representing which vertices (or nodes) of a graph are adjacent to which other vertices.
 
+Example using the graph above
+
+    > 0,  4, 0,  0,  0,  0, 0,  8, 0
+      4,  0, 8,  0,  0,  0, 0, 11, 0 
+      0,  8, 0,  7,  0,  4, 0,  0, 2                     
+      0,  0, 7,  0,  9, 14, 0,  0, 0                     
+      0,  0, 0,  9,  0, 10, 0,  0, 0
+      0,  0, 4,  0, 10,  0, 2,  0, 0                     
+      0,  0, 0, 14,  0,  2, 0,  1, 6
+      8, 11, 0,  0,  0,  0, 1,  0, 7
+      0,  0, 2,  0,  0,  0, 6,  7, 0
+
+C/C++ has a data type for undirected and directed graphs. 
+
+    /* Let us create the example graph discussed above */
+       int graph[V][V] = {{0, 4, 0, 0, 0, 0, 0, 8, 0},
+                          {4, 0, 8, 0, 0, 0, 0, 11, 0},
+                          {0, 8, 0, 7, 0, 4, 0, 0, 2},
+                          {0, 0, 7, 0, 9, 14, 0, 0, 0},
+                          {0, 0, 0, 9, 0, 10, 0, 0, 0},
+                          {0, 0, 4, 0, 10, 0, 2, 0, 0},
+                          {0, 0, 0, 14, 0, 2, 0, 1, 6},
+                          {8, 11, 0, 0, 0, 0, 1, 0, 7},
+                          {0, 0, 2, 0, 0, 0, 6, 7, 0}
+                         };
+
 ### Adjacency List
+
+Adjacency lists are more space-efficient, particularly for sparse graphs in which most pairs of vertices are 
+unconnected, while adjacency matrices facilitate quicker look-ups.
+
+Moreover, we can easily work with adjacency list in PHP
+
+Example:
+
+    $graph = array(
+      'A' => array('B' => 2, 'D' => 4),
+      'B' => array('C' => 1, 'G' => 10, 'A' => 2),
+      'C' => array('B' => 1),
+      'D' => array('E' => 3, 'A' => 4, 'F' => 8),
+      'E' => array('D' => 3),
+      'F' => array('D' => 8, 'G' => 2),
+      'G' => array('B' => 10, 'F' => 2),
+    );
 
 ## Source, Inspiration, and Reference
 * http://en.wikipedia.org/wiki/Graph_theory

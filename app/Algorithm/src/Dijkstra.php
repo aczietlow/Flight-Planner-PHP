@@ -109,7 +109,13 @@ class Dijkstra
     /**
      * Finds the shortest possible path to the target vertex from the source.
      *
-     * @param $target
+     * @param mixed $target
+     *   An identifier for the target vertex.
+     *
+     * @throws \Exception if path from source to target does not exist.
+     *
+     * @return \stdClass
+     *   Contains result of shortest path data.
      */
     public function getShortestPath($target)
     {
@@ -126,7 +132,8 @@ class Dijkstra
         }
 
         if ($stack->isEmpty()) {
-            echo "No route from $this->source to $target";
+            $message = sprintf('No route from %s to %s', $this->source, $target);
+            throw new \Exception($message);
         } else {
             // Add the source node and print the path in reverse {LIFO} order.
             $stack->push($this->source);
@@ -141,6 +148,7 @@ class Dijkstra
                 $result->path[$i] = $vertex;
                 $i++;
             }
+            return $result;
         }
     }
 

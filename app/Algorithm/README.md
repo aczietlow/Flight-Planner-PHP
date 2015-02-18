@@ -20,10 +20,30 @@ Assign a distance value of 0 to the source vertex so that it is picked first.
    v then update the distance value of v.
        
        
-## Heaps, Stacks, and Queues Oh my!
+## Heaps, Stacks, and Queues Oh my
+
+
+
+## Graphs
+
+For this problem space a graph can be thought of as a series of vertices plotted along with x,y axis with a
+measure of distance for each edge between vertices.
+
+![Graphs](http://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif "Source: http://wikimedia.org/")
+
+There are 2 ways to represent this at a code level, adjacency matrix, or adjacency list. Each has advantages 
+and disadvantages is processing speeds depending on the task. To my knowledge I don't know of a common/simple
+way to use  adjacency matrices in PHP.
+
+### Adjacency Matrix
+
+An adjacency matrix is a means of representing which vertices (or nodes) of a graph are adjacent to which other vertices.
+
+### Adjacency List
 
 ## Source, Inspiration, and Reference
 * http://en.wikipedia.org/wiki/Graph_theory
 * http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 * http://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/
 * http://www.sitepoint.com/data-structures-4/
+* http://www.codediesel.com/algorithms/building-a-adjacency-matrix-of-a-graph/

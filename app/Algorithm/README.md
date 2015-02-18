@@ -90,3 +90,11 @@ Example:
 * http://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/
 * http://www.sitepoint.com/data-structures-4/
 * http://www.codediesel.com/algorithms/building-a-adjacency-matrix-of-a-graph/
+
+## Future
+
+In the future I'd love to be able to print the graphs and illustrate the process.
+
+Resources
+* https://github.com/clue/graph
+* http://www.graphviz.org/

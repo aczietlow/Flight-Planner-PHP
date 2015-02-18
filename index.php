@@ -21,3 +21,4 @@ $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('
 
 
 var_dump($airport);
+

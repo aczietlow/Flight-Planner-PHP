@@ -64,7 +64,7 @@ class Dijkstra
         $this->source = $source;
 
         // Run dijkstra's algorithm on the graph.
-        $this->dijkstra($source);
+        $this->dijkstra($this->source);
     }
 
     /**

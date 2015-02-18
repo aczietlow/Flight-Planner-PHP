@@ -20,5 +20,20 @@ $airport = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('DALA
 $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('NAVE');
 
 
-var_dump($airport);
+//var_dump($airport);
 
+$graph = array(
+  'A' => array('B' => 2, 'D' => 4),
+  'B' => array('C' => 1, 'G' => 10),
+  'C' => array('B' => 1),
+  'D' => array('E' => 3, 'A' => 4, 'F' => 8),
+  'E' => array('D' => 3),
+  'F' => array('D' => 8, 'G' => 2),
+  'G' => array('B' => 10, 'F' => 2),
+);
+
+$algorithm = new \FlightSim\Algorithm\Dijkstra($graph);
+
+$result = $algorithm->getShortestPath('A', 'B');
+
+var_dump($result);

@@ -32,8 +32,8 @@ $graph = array(
   'G' => array('B' => 10, 'F' => 2),
 );
 
-$dijkstra = new \FlightSim\Algorithm\Dijkstra($graph);
+$dijkstra = new \FlightSim\Algorithm\Dijkstra($graph, 'A');
 
-$dijkstra->getShortestPath('A', 'G');
+$dijkstra->getShortestPath('G');
 //$algorithm->DIJKSTRA($graph, 'A');
 //$algorithm->printSolution();

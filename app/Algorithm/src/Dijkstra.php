@@ -30,43 +30,58 @@ class Dijkstra
      */
 
     /**
-     * An array containing the minimum distance between all vertices.
+     * An array containing the minimum distance to each Vertex from source.
      *
      * @var array
      */
-    protected $distance;
+    protected $distance = array();
 
     /**
      * A graph represented by an adjacency list.
      *
      * @var array
      */
-    protected $graph;
+    protected $graph = array();
 
-    public function __construct($graph)
+    /**
+     * An identifier for the source vertex.
+     *
+     * @var string
+     */
+    public $source = '';
+
+
+    /**
+     * Each vertex's preceding vertex with the shortest path.
+     *
+     * @var array
+     */
+    protected $route = array();
+
+    public function __construct($graph, $source)
     {
         $this->graph = $graph;
+        $this->source = $source;
+
+        // Run dijkstra's algorithm on the graph.
+        $this->dijkstra($source);
     }
 
-    public function getShortestPath($source, $target)
+    /**
+     * Dijkstra's Algorithm.
+     *
+     * @param mixed $source
+     *   Source vertex of the graph.
+     */
+    protected function dijkstra($source)
     {
-        // Distance from each Vertex to source
-        $distance = array();
-
-        // Holds the shortest path tree;
-        $sptSet = array();
-
-        // Each vertex's predecessor with the shortest path.
-        $route = array();
-
         // Queue of all unoptimized vertices
         $queue = new \SplPriorityQueue();
 
         foreach ($this->graph as $vertex => $adjacentVertices) {
             // @TODO PHP_INT_MAX vs INF?
-            $distance[$vertex] = PHP_INT_MAX;
-            $sptSet[$vertex] = false; // @TODO prob not needed anymore now that we use a queue.
-            $route[$vertex] = null;
+            $this->distance[$vertex] = PHP_INT_MAX;
+            $this->route[$vertex] = null;
             foreach ($adjacentVertices as $adjacentVertex => $weight) {
                 // Use the distance (weight) as the priority.
                 $queue->insert($adjacentVertex, $weight);
@@ -74,7 +89,7 @@ class Dijkstra
         }
 
         // Set distance of source to 0.
-        $distance[$source] = 0;
+        $this->distance[$source] = 0;
 
         while (!$queue->isEmpty()) {
             // Extract the minimum distance.
@@ -82,31 +97,77 @@ class Dijkstra
             if (!empty($this->graph[$u])) {
                 foreach ($this->graph[$u] as $v => $weight) {
                     // If alternate route is shorter.
-                    if (($distance[$u] + $weight) < $distance[$v]) {
-                        $route[$v] = $u;
-                        $distance[$v] = $distance[$u] + $weight;
+                    if (($this->distance[$u] + $weight) < $this->distance[$v]) {
+                        $this->route[$v] = $u;
+                        $this->distance[$v] = $this->distance[$u] + $weight;
                     }
                 }
             }
         }
+    }
 
+    /**
+     * Finds the shortest possible path to the target vertex from the source.
+     *
+     * @param $target
+     */
+    public function getShortestPath($target)
+    {
+        // Use reverse iteration using reverse stack.
+        $stack = new \SplStack();
+        $u = $target;
+        $distance = 0;
+
+        // Traverse from target to source
+        while (isset($this->route[$u]) && $this->route[$u]) {
+            $stack->push($u);
+            $distance += $this->graph[$u][$this->route[$u]];
+            $u = $this->route[$u];
+        }
+
+        if ($stack->isEmpty()) {
+            echo "No route from $this->source to $target";
+        } else {
+            // Add the source node and print the path in reverse {LIFO} order.
+            $stack->push($this->source);
+
+            // @TODO find a type for this.
+            $result = new \stdClass();
+
+            $result->distance = $distance;
+
+            $i = 0;
+            foreach ($stack as $vertex) {
+                $result->path[$i] = $vertex;
+                $i++;
+            }
+        }
+    }
+
+    /**
+     * Finds and prints the shortest possible path to the target vertex from the source.
+     *
+     * @param $target
+     */
+    public function printShortestPath($target)
+    {
         // Use reverse iteration using reverse stack.
         $stack = new \SplStack();
         $u = $target;
         $dist = 0;
 
         // Traverse from target to source
-        while (isset($route[$u]) && $route[$u]) {
+        while (isset($this->route[$u]) && $this->route[$u]) {
             $stack->push($u);
-            $dist += $this->graph[$u][$route[$u]];
-            $u = $route[$u];
+            $dist += $this->graph[$u][$this->route[$u]];
+            $u = $this->route[$u];
         }
 
         if ($stack->isEmpty()) {
-            echo "No route from $source to $target";
+            echo "No route from $this->source to $target";
         } else {
             // Add the source node and print the path in reverse {LIFO} order.
-            $stack->push($source);
+            $stack->push($this->source);
             echo "$dist:";
             $sep = '';
             foreach ($stack as $vertex) {

@@ -19,8 +19,16 @@ $airplane = FlightSim\Entity\EntityFactory::getVehicle('Airplane')->load('747');
 $airport = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('DALA');
 $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('NAVE');
 
+$startDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KMCO');
+$endDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KCLE');
 
-//var_dump($airport);
+//var_dump($startDestination);
+
+$flightPlan = new FlightSim\FlightPlan\FlightPlan();
+$flightPlan->addDestination($startDestination);
+$flightPlan->addDestination($endDestination);
+
+//var_dump($flightPlan->getDestinations());
 
 $graph = array(
   'A' => array('B' => 2, 'D' => 4),
@@ -36,3 +44,5 @@ $dijkstra = new \FlightSim\Algorithm\Dijkstra($graph, 'A');
 
 $dijkstra->printShortestPath('G');
 $result = $dijkstra->getShortestPath('G');
+
+//var_dump($result);

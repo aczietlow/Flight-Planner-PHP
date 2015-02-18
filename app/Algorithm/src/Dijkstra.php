@@ -30,33 +30,97 @@ class Dijkstra
      */
 
     /**
-     * A graph represented by an adjacency list.
+     * An array containing the minimum distance between all vertices.
      *
      * @var array
      */
-    protected $graph;
+    protected $distance;
 
-    public function __construct($graph)
+    /**
+     * Gets the calculated distance array.
+     *
+     * @return array
+     */
+    public function getDistance()
     {
-        $this->graph = $graph;
+        return $this->distance;
     }
 
-    public function getShortestPath($startPoint, $endPoint)
+    public function DIJKSTRA($graph, $source)
     {
+        // Distance from each Vertex to source
+        $distance = array();
+
+        // Holds the shortest path tree;
         $sptSet = array();
 
+        foreach ($graph as $vertex => $adjacentVertices) {
+            $distance[$vertex] = PHP_INT_MAX;
+            $sptSet[$vertex] = false;
+        }
+
         // Set distance of starting point to 0.
-        $sptSet[$startPoint] = 0;
+        $distance[$source] = 0;
 
-        $currentVertex = $startPoint;
+        // Find shortest path from all vertices.
+        for ($i = 0; $i < count($graph) - 1; $i++) {
+            $u = $this->minDistance($distance, $sptSet, $graph);
 
-        for ($i = 0; $i < count($this->graph); $i++) {
-            $adjacentVertices = $this->graph[$currentVertex];
+            // Mark the vertex as processed in the spt.
+            $sptSet[$u] = true;
 
-            foreach ($adjacentVertices as $adjacentVertex => $distance) {
-                $sptSet[$adjacentVertex] = $distance;
+            // Update the distance of all adjacent vertices from the selected vertex.
+            foreach ($graph[$u] as $v => $distanceValue) {
+                /*
+                 * Update distance of $vertex if:
+                 * - It's not in sptSet
+                 * - The total weight of path from source to v through u is
+                 *   smaller than current value of dist[v]
+                 */
+                if (!$sptSet[$v] &&
+                  $distance[$u] != PHP_INT_MAX &&
+                  ($distance[$u] + $distanceValue < $distance[$v])) {
+                    $distance[$v] = $distance[$u] + $distanceValue;
+                }
+            }
+
+
+        }
+
+        $this->distance = $distance;
+    }
+
+    public function printSolution()
+    {
+        print sprintf("Vertex   Distance from Source\n");
+        foreach ($this->distance as $vertex => $distance) {
+            print sprintf("%s \t\t %d\n", $vertex, $distance);
+        }
+    }
+
+    /**
+     * Utility function to find the minimum distance from the vertices not in the sptSet.
+     *
+     * @param array $distance
+     *   Array containing each vertices minimum distance from source.
+     * @param array $sptSet
+     *   Array containing all of the vertices that are part of the spt.
+     *
+     * @return mixed
+     *   The vertex with the minimum distance from source.
+     */
+    protected function minDistance($distance, $sptSet, $graph)
+    {
+        $min = PHP_INT_MAX;
+        $minVertex = '';
+
+        // Finds the next unprocessed vertex with the shortest distance from source.
+        foreach ($graph as $vertex => $adjacentVertices) {
+            if ($sptSet[$vertex] == false && $distance[$vertex] <= $min) {
+                $min = $distance[$vertex];
+                $minVertex = $vertex;
             }
         }
-        return $sptSet;
+        return $minVertex;
     }
 }

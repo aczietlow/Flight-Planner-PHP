@@ -34,6 +34,5 @@ $graph = array(
 
 $algorithm = new \FlightSim\Algorithm\Dijkstra($graph);
 
-$result = $algorithm->getShortestPath('A', 'B');
-
-var_dump($result);
+$algorithm->DIJKSTRA($graph, 'A');
+$algorithm->printSolution();

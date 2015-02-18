@@ -24,7 +24,7 @@ $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('
 
 $graph = array(
   'A' => array('B' => 2, 'D' => 4),
-  'B' => array('C' => 1, 'G' => 10),
+  'B' => array('C' => 1, 'G' => 10, 'A' => 2),
   'C' => array('B' => 1),
   'D' => array('E' => 3, 'A' => 4, 'F' => 8),
   'E' => array('D' => 3),
@@ -32,9 +32,8 @@ $graph = array(
   'G' => array('B' => 10, 'F' => 2),
 );
 
-//$algorithm = new \FlightSim\Algorithm\Dijkstra($graph);
+$dijkstra = new \FlightSim\Algorithm\Dijkstra($graph);
 
+$dijkstra->getShortestPath('A', 'G');
 //$algorithm->DIJKSTRA($graph, 'A');
 //$algorithm->printSolution();
-
-$Q = new SplPriorityQueue();

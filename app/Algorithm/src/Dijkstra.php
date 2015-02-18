@@ -56,81 +56,64 @@ class Dijkstra
         // Holds the shortest path tree;
         $sptSet = array();
 
+        // Each vertex's predecessor with the shortest path.
+        $route = array();
+
         // Queue of all unoptimized vertices
         $queue = new \SplPriorityQueue();
 
         foreach ($this->graph as $vertex => $adjacentVertices) {
             // @TODO PHP_INT_MAX vs INF?
             $distance[$vertex] = PHP_INT_MAX;
-            $sptSet[$vertex] = false;
-            foreach ($adjacentVertices as $adjacentVertex => $distanceValue) {
+            $sptSet[$vertex] = false; // @TODO prob not needed anymore now that we use a queue.
+            $route[$vertex] = null;
+            foreach ($adjacentVertices as $adjacentVertex => $weight) {
                 // Use the distance (weight) as the priority.
-                $queue->insert($adjacentVertex, $distanceValue);
+                $queue->insert($adjacentVertex, $weight);
             }
         }
 
-        // Set distance of starting point to 0.
+        // Set distance of source to 0.
         $distance[$source] = 0;
 
-        // Find shortest path from all vertices.
-        for ($i = 0; $i < count($this->graph) - 1; $i++) {
-            $u = $this->minDistance($distance, $sptSet);
-
-            // Mark the vertex as processed in the spt.
-            $sptSet[$u] = true;
-
-            // Update the distance of all adjacent vertices from the selected vertex.
-            foreach ($this->graph[$u] as $v => $distanceValue) {
-                /*
-                 * Update distance of $vertex if:
-                 * - It's not in sptSet
-                 * - The total weight of path from source to v through u is
-                 *   smaller than current value of dist[v]
-                 */
-                if (!$sptSet[$v] &&
-                  $distance[$u] != PHP_INT_MAX &&
-                  ($distance[$u] + $distanceValue < $distance[$v])) {
-                    $distance[$v] = $distance[$u] + $distanceValue;
+        while (!$queue->isEmpty()) {
+            // Extract the minimum distance.
+            $u = $queue->extract();
+            if (!empty($this->graph[$u])) {
+                foreach ($this->graph[$u] as $v => $weight) {
+                    // If alternate route is shorter.
+                    if (($distance[$u] + $weight) < $distance[$v]) {
+                        $route[$v] = $u;
+                        $distance[$v] = $distance[$u] + $weight;
+                    }
                 }
             }
-
-
         }
 
-        $this->distance = $distance;
-    }
+        // Use reverse iteration using reverse stack.
+        $stack = new \SplStack();
+        $u = $target;
+        $dist = 0;
 
-    public function printSolution()
-    {
-        print sprintf("Vertex   Distance from Source\n");
-        foreach ($this->distance as $vertex => $distance) {
-            print sprintf("%s \t\t %d\n", $vertex, $distance);
+        // Traverse from target to source
+        while (isset($route[$u]) && $route[$u]) {
+            $stack->push($u);
+            $dist += $this->graph[$u][$route[$u]];
+            $u = $route[$u];
         }
-    }
 
-    /**
-     * Utility function to find the minimum distance from the vertices not in the sptSet.
-     *
-     * @param array $distance
-     *   Array containing each vertices minimum distance from source.
-     * @param array $sptSet
-     *   Array containing all of the vertices that are part of the spt.
-     *
-     * @return mixed
-     *   The vertex with the minimum distance from source.
-     */
-    protected function minDistance($distance, $sptSet)
-    {
-        $min = PHP_INT_MAX;
-        $minVertex = '';
-
-        // Finds the next unprocessed vertex with the shortest distance from source.
-        foreach ($this->graph as $vertex => $adjacentVertices) {
-            if ($sptSet[$vertex] == false && $distance[$vertex] <= $min) {
-                $min = $distance[$vertex];
-                $minVertex = $vertex;
+        if ($stack->isEmpty()) {
+            echo "No route from $source to $target";
+        } else {
+            // Add the source node and print the path in reverse {LIFO} order.
+            $stack->push($source);
+            echo "$dist:";
+            $sep = '';
+            foreach ($stack as $vertex) {
+                echo $sep, $vertex;
+                $sep = '->';
             }
+            echo "\n";
         }
-        return $minVertex;
     }
 }

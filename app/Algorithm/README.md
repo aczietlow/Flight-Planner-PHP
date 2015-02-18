@@ -22,7 +22,30 @@ Assign a distance value of 0 to the source vertex so that it is picked first.
        
 ## Heaps, Stacks, and Queues Oh my
 
+The nature of the data allowed for appropriate use of the priority queue and stack data types.
 
+### Priority Queue
+
+> A priority queue is a structure which accepts and holds items over time, but which can return the item of "highest
+priority" whenever requested.
+
+In PHP the SplPriorityQueue class provides the functionalities of a prioritized queue, implemented using a max heap.
+
+> A max heap is a tree structure where each parent node has 2 children nodes, and each parent node is gte to the
+children nodes.
+
+Items added to a heap must be added to the most bottom left position available in the tree structure. When a 
+value is added that violates the rule of parents gte children then the tree leaf is sorted to satisfy that condition.
+
+In this case using a max heap increases the performance of Dijksta's algorithm.
+See http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Running_time
+
+With arrays you have a list of elements and you can access any of them at any time. A stack, there's no random-access
+operation; there are only Push, Peek and Pop, all of which deal exclusively with the element on the top of the stack.
+(Think of the wooden blocks stacked up vertically now. You can't touch anything below the top of the tower or it'll fall over.)
+
+For more information on PHPs data structures
+See http://php.net/manual/en/spl.datastructures.php 
 
 ## Graphs
 

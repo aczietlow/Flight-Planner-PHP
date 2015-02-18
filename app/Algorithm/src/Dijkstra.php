@@ -75,7 +75,8 @@ class Dijkstra
      */
     protected function dijkstra($source)
     {
-        // Queue of all unoptimized vertices
+        // See readme file for why a priority queue works best here.
+        // Queue of all unoptimized vertices.
         $queue = new \SplPriorityQueue();
 
         foreach ($this->graph as $vertex => $adjacentVertices) {
@@ -124,7 +125,7 @@ class Dijkstra
         $u = $target;
         $distance = 0;
 
-        // Traverse from target to source
+        // Traverse from target to source using the preceding vertices with the shortest distance from $this->route.
         while (isset($this->route[$u]) && $this->route[$u]) {
             $stack->push($u);
             $distance += $this->graph[$u][$this->route[$u]];

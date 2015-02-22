@@ -8,7 +8,9 @@
 
 namespace FlightSim\FlightPlan;
 
+use FlightSim\Algorithm\Graph;
 use \FlightSim\Entity\Destination;
+use FlightSim\Entity\EntityFactory;
 
 class FlightPlan
 {
@@ -57,5 +59,18 @@ class FlightPlan
     public function getDestinations()
     {
         return $this->destinations;
+    }
+
+    public function getGraph()
+    {
+        // Mock data.
+        $destinations = array();
+        $destinations[] = EntityFactory::getDestination('airport')->load('AUGA');
+        $start = $this->destinations[0];
+        $target = $this->destinations[1];
+        $graph = new Graph($start, $target, $destinations);
+
+        $graph->buildVertices();
+        $graph->buildEdges();
     }
 }

@@ -75,7 +75,6 @@ class Graph
         $graph = array();
 
         foreach ($this->vertices as $icao => $vertex) {
-            echo 'test';
             unset($this->vertices[$icao]);
         }
     }

@@ -8,6 +8,9 @@
 
 namespace FlightSim\Database;
 
+use \FlightSim\Entity\Airplane;
+use \FlightSim\Entity\Airport;
+
 class Database
 {
 
@@ -66,5 +69,34 @@ class Database
     public function loadNavBeacon($identifier)
     {
 
+    }
+
+  /**
+   * Retrieves all entities of a particular type.
+   *
+   * @param string $type
+   *   The type of entity you wish to return (airport, airplane, etc)
+   * @param string $identifier
+   *   The unique identifier for that particular entity (model, icao_id, etc)
+   *
+   * @return array
+   *   Returns a keyed array of all
+   */
+    public function loadAllOfType($type)
+    {
+        $results = array();
+        $entities = $this->xml->xpath(
+          $type . "s/" . $type
+        );
+
+        $class = '\\FlightSim\\Entity\\' . ucfirst($type);
+        $class = new $class;
+        $identifier = $class->getIdentifier();
+
+        foreach ($entities as $entity) {
+            $results[(string) $entity->$identifier] = (string) $entity->$identifier;
+        }
+
+       return $results;
     }
 }

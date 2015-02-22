@@ -49,4 +49,9 @@ abstract class Entity {
         $db = new Database();
         $this->entityData = $db->load($this->entityType, $uid, $this->entityIdentifier);
     }
+
+    public function getIdentifier()
+    {
+      return $this->entityIdentifier;
+    }
 }

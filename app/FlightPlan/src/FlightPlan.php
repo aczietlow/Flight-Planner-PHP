@@ -8,7 +8,10 @@
 
 namespace FlightSim\FlightPlan;
 
+use \FlightSim\Database\Database;
 use \FlightSim\Entity\Destination;
+use \FlightSim\Entity\Airplane;
+use \FlightSim\Entity\Airport;
 
 class FlightPlan
 {
@@ -26,7 +29,8 @@ class FlightPlan
 
     public function __construct()
     {
-
+        // @todo "This screams for database injection".
+        $this->database = new Database();
     }
 
     /**
@@ -57,5 +61,19 @@ class FlightPlan
     public function getDestinations()
     {
         return $this->destinations;
+    }
+
+    public function loadAllOfType($type) {
+      $typeName = $type . 's';
+      $allOfType = $this->database->loadAllOfType($type);
+
+      $class = '\\FlightSim\\Entity\\' . ucfirst($type);
+
+      foreach ($allOfType as $entityID) {
+          $allOfType[$entityID] = new $class;
+          $allOfType[$entityID]->load($entityID);
+      }
+
+      $this->$typeName = $allOfType;
     }
 }

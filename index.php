@@ -18,7 +18,6 @@ require_once 'vendor/autoload.php';
 $airplane = FlightSim\Entity\EntityFactory::getVehicle('Airplane')->load('747');
 $airport = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('DALA');
 $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('NAVE');
-
 $startDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KMCO');
 $endDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KCLE');
 

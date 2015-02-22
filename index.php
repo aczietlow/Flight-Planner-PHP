@@ -46,7 +46,7 @@ $result = $dijkstra->getShortestPath('G');
 
 $flightPlan->getGraph();
 
-// Distance from 1600 Pennsylvania Ave NW, Washington, DC to 1922 F St NW, Washington, DC.
-$test = \FlightSim\Algorithm\HaversineAlgorithm::distanceBetweenPlaces(38.8977, 77.0366, 38.897147, -77.043934);
+// Distance from Augusta regional Airport to 1600 Pennsylvania Ave NW, Washington, DC.
+$test = \FlightSim\Algorithm\HaversineAlgorithm::distanceBetweenPlaces(-77.037852, 38.898556, -77.043934, 38.897147);
 
 print $test;

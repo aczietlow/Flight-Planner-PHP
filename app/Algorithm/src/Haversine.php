@@ -18,7 +18,8 @@ namespace FlightSim\Algorithm;
 class HaversineAlgorithm
 {
     // Radius of Earth in KM for WGS-84 (latest standard).
-    const RADIUS = 6372.797560856;
+//    const RADIUS = 6372.797560856;
+    const RADIUS = 6373;
 
     /**
      * Convert degrees to Radians.
@@ -54,12 +55,11 @@ class HaversineAlgorithm
      */
     public static function distanceBetweenPlaces($lon1, $lat1, $lon2, $lat2)
     {
-        $foo = self::radians($lat1);
-        $foo2 = self::radians($lat2);
-        $dlon = self::radians($lon2 - $lon1);
-        $dlat = self::radians($lat2 - $lat1);
+        $dlon = $lon2 - $lon1;
+        $dlat = $lat2 - $lat1;
 
-        $a = (sin($dlat / 2) * sin($dlat / 2)) + cos(self::radians($lat1)) * cos(self::radians($lat2)) * (sin($dlon / 2) * sin($dlon / 2));
+        $a = pow((sin($dlat/2)),2) + cos($lat1) * cos($lat2) * pow((sin($dlon/2)),2);
+//        $a = (sin($dlat / 2) * sin($dlat / 2)) + cos(self::radians($lat1)) * cos(self::radians($lat2)) * (sin($dlon / 2) * sin($dlon / 2));
         $angle = 2 * atan2(sqrt($a), sqrt(1 - $a));
         return $angle * self::RADIUS;
     }

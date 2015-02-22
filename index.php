@@ -27,7 +27,7 @@ $endDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->loa
 $flightPlan = new FlightSim\FlightPlan\FlightPlan();
 $flightPlan->addDestination($startDestination);
 $flightPlan->addDestination($endDestination);
-$flightPlan->loadAllOfType('airplane', 'model');
+$flightPlan->loadAllOfType('airplane');
 
 //var_dump($flightPlan->getDestinations());
 

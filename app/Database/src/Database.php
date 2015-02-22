@@ -8,6 +8,9 @@
 
 namespace FlightSim\Database;
 
+use \FlightSim\Entity\Airplane;
+use \FlightSim\Entity\Airport;
+
 class Database
 {
 
@@ -79,14 +82,18 @@ class Database
    * @return array
    *   Returns a keyed array of all
    */
-    public function loadAllOfType($type, $identifier)
+    public function loadAllOfType($type)
     {
         $results = array();
         $entities = $this->xml->xpath(
           $type . "s/" . $type
         );
 
-        foreach ($entities as $entity) {
+      $class = '\\FlightSim\\Entity\\' . ucfirst($type);
+      $class = new $class;
+      $identifier = $class->getIdentifier();
+
+      foreach ($entities as $entity) {
             $results[(string) $entity->$identifier] = (string) $entity->$identifier;
         }
 

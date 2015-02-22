@@ -63,9 +63,9 @@ class FlightPlan
         return $this->destinations;
     }
 
-    public function loadAllOfType($type, $identifier) {
+    public function loadAllOfType($type) {
       $typeName = $type . 's';
-      $allOfType = $this->database->loadAllOfType($type, $identifier);
+      $allOfType = $this->database->loadAllOfType($type);
 
       $class = '\\FlightSim\\Entity\\' . ucfirst($type);
 

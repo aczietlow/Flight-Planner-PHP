@@ -24,6 +24,13 @@ class FlightPlan
      */
     public $destinations = array();
 
+    /**
+     * How much to modify the distance by before calculating destination subset.
+     * @var int
+     * @todo: add this to destinationSubset.
+     */
+    private $distanceModifier;
+
     public function __construct()
     {
 

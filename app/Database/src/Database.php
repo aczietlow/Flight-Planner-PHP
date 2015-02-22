@@ -89,11 +89,11 @@ class Database
           $type . "s/" . $type
         );
 
-      $class = '\\FlightSim\\Entity\\' . ucfirst($type);
-      $class = new $class;
-      $identifier = $class->getIdentifier();
+        $class = '\\FlightSim\\Entity\\' . ucfirst($type);
+        $class = new $class;
+        $identifier = $class->getIdentifier();
 
-      foreach ($entities as $entity) {
+        foreach ($entities as $entity) {
             $results[(string) $entity->$identifier] = (string) $entity->$identifier;
         }
 

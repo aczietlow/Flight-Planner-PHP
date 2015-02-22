@@ -94,5 +94,6 @@ class Airport extends Destination
 
     public function getLocation()
     {
+        return array($this->latitude, $this->longitude);
     }
 }

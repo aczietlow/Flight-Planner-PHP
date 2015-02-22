@@ -58,4 +58,13 @@ class FlightPlan
     {
         return $this->destinations;
     }
+
+    private function getDistance(destination $start, destination $end)
+    {
+        $start = $start->getLocation();
+        $end = $end->getLocation();
+        $distance = sqrt(($end[1] - $start[1]) ^ 2 + ($end[2] - $start[2])^2);
+        return $distance;
+
+    }
 }

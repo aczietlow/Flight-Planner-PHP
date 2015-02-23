@@ -48,7 +48,8 @@ $flightPlan->getGraph();
 
 // Distance from Augusta regional Airport to 1600 Pennsylvania Ave NW, Washington, DC.
 
-//42.139722, -71.516667 to 42.358056, -71.063611.
+// 42.139722, -71.516667 to 42.358056, -71.063611. (should be ~44.4 km)
+// We really really need tests for these things!!!!!!!!!
 $test = \FlightSim\Algorithm\HaversineAlgorithm::distanceBetweenPlaces(42.139722, -71.516667, 42.358056, -71.063611);
 
 print $test;

@@ -38,8 +38,8 @@ class HaversineAlgorithm
      */
     public static function distanceBetweenPlaces($lat1, $lon1, $lat2, $lon2)
     {
-        $dlon = self::decimalDegreesToRadians($lon2 - $lon1);
         $dlat = self::decimalDegreesToRadians($lat2 - $lat1);
+        $dlon = self::decimalDegreesToRadians($lon2 - $lon1);
 
         $a = (sin($dlat / 2) * sin($dlat / 2)) +
           cos(self::decimalDegreesToRadians($lat1)) * cos(self::decimalDegreesToRadians($lat2)) *

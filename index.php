@@ -18,7 +18,6 @@ require_once 'vendor/autoload.php';
 $airplane = FlightSim\Entity\EntityFactory::getVehicle('Airplane')->load('747');
 $airport = FlightSim\Entity\EntityFactory::getDestination('Airport')->load('DALA');
 $navbeacon = FlightSim\Entity\EntityFactory::getDestination('NavBeacon')->load('NAVE');
-
 $startDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KMCO');
 $endDestination = FlightSim\Entity\EntityFactory::getDestination('airport')->load('KCLE');
 
@@ -45,4 +44,12 @@ $dijkstra = new \FlightSim\Algorithm\Dijkstra($graph, 'A');
 $dijkstra->printShortestPath('G');
 $result = $dijkstra->getShortestPath('G');
 
-//var_dump($result);
+$flightPlan->getGraph();
+
+// Distance from Augusta regional Airport to 1600 Pennsylvania Ave NW, Washington, DC.
+
+// 42.139722, -71.516667 to 42.358056, -71.063611. (should be ~44.4 km)
+// We really really need tests for these things!!!!!!!!!
+$test = \FlightSim\Algorithm\HaversineAlgorithm::distanceBetweenPlaces(42.139722, -71.516667, 42.358056, -71.063611);
+
+print $test;

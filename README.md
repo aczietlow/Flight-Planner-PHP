@@ -1,4 +1,4 @@
-# PHP Flight Planning Simulator
+# PHP Flight Planning Simulators
 
 This flight sim will allow a user to create flight planes by selecting an available
 airplane at a destination, and plotting destination(s). THIS IS ONLY A SIMULATION MEANT

@@ -49,7 +49,7 @@ class Airport extends Destination
      */
     public function getICAO()
     {
-        return $this->ICAO;
+        return $this->icao_id;
     }
 
     /**
@@ -94,5 +94,6 @@ class Airport extends Destination
 
     public function getLocation()
     {
+        return array($this->latitude, $this->longitude);
     }
 }

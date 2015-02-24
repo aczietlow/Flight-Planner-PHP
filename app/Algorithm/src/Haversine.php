@@ -35,6 +35,7 @@ class HaversineAlgorithm
      *   Longitude for point B.
      *
      * @return int
+     *   Distance in KM.
      */
     public static function distanceBetweenPlaces($lat1, $lon1, $lat2, $lon2)
     {
